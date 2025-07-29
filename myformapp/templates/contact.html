@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    body {
+      background-color: #e2d6e5;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .text-danger {
+      color: red;
+      font-size: 0.9rem;
+    }
+
+    .success-message {
+      color: green;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Contact Form</h2>
+
+    {% if success_message %}
+      <div class="success-message">{{ success_message }}</div>
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{ form.name.value|default_if_none:'' }}">
+        {% for error in form.name.errors %}
+          <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="{{ form.email.value|default_if_none:'' }}">
+        {% for error in form.email.errors %}
+          <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5">{{ form.message.value|default_if_none:'' }}</textarea>
+        {% for error in form.message.errors %}
+          <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
