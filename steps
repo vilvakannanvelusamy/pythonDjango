@@ -1,0 +1,20 @@
+step 1: download git and install
+step 2: open vs code
+step 3: clone the git project
+step 4: add or edit any files
+step 5: git config --global user.name "Your Name" git config user.email=youremail@example.com
+step 6: add the changed file in the git using (git add .) . refers the current folder changes
+step 7: git diff (to check the things what i have changed recently)
+step 8: git add . (for whole folder)
+step 9: git commit -m "msg" (commit msg)
+step 10: git push (it will help u to push the change with user name and pwd)
+ste 11: if u dont want to push with ur user name and pwd, you can use key method using 
+
+ssh-keygen
+
+step 12: copy the .pub file and paste in ur git ssh key (go to settings >> ssh and gpg keys > new ssh keys
+
+step 13: git remote set-url origin git@github.com:vilvakannanvelusamy/pythonDjango.git
+
+
+step 14: git remote -v (check it is pointing to git url)
