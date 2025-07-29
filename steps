@@ -18,3 +18,9 @@ step 13: git remote set-url origin git@github.com:vilvakannanvelusamy/pythonDjan
 
 
 step 14: git remote -v (check it is pointing to git url)
+
+to clone new branch : git checkout -b est (here est is my branch name)
+
+to check the current branch : git branch (* will denote the current branch)
+
+to switch the branch : git switch main (main is the branch name)
